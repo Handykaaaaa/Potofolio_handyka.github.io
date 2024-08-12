@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Your Name - Web Developer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a192f;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            position: fixed; /* Membuat header tetap di atas */
+            top: 0; /* Menempatkan header di bagian atas */
+            left: 50%; /* Menempatkan header di sisi kiri */
+            width: 100%; /* Mengatur lebar header penuh */
+            background-color: #0a192f; /* Warna latar belakang dengan transparansi */
+            padding: 20px; /* Padding untuk header */
+            z-index: 1000; /* Memastikan header berada di atas elemen lainnya */
+        }
+
+        nav a {
+            color: #64ffda; /* Warna tautan */
+            margin: 0 15px; /* Jarak antar tautan */
+            text-decoration: none; /* Menghapus garis bawah dari tautan */
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Menambahkan garis bawah saat hover */
+        }
+
+        .resume-btn {
+            border: 1px solid #64ffda;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .main-content {
+            margin-top: 100px;
+            position: fixed;
+        }
+        .intro {
+            color: #64ffda;
+            font-size: 16px;
+        }
+        h1 {
+            font-size: 60px;
+            margin: 0;
+        }
+        .tagline {
+            font-size: 50px;
+            color: #8892b0;
+        }
+        .description {
+            max-width: 600px;
+            margin-top: 20px;
+            color: #8892b0;
+        }
+        .cta-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #64ffda;
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* Jarak antar link */
+            margin-top: 350px; /* Jarak antara deskripsi dan link sosial */
+        }
+        .social-links a {
+            text-decoration: none;
+            color: #007bff; /* Warna link */
+            font-weight: bold;
+        }
+        .social-links a:hover {
+            text-decoration: underline; /* Efek hover */
+        }
+        .about-section {
+        background-color: rgba(243, 243, 243, 0); /* Transparansi 80% */
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 100px;
+        margin-left: 700px;
+        max-width: 800px;
+    }
+    .about-section h2 {
+        color: #64ffda;
+        border-bottom: 1px solid #64ffda;
+        padding-bottom: 10px;
+    }
+
+    .experience-section {
+        background-color: rgba(255, 255, 255, 0); /* Transparansi 80% */
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 100px;
+        margin-left: 700px;
+        max-width: 800px;
+    }
+    .experience-section h2 {
+        color: #64ffda;
+        border-bottom: 1px solid #64ffda;
+        padding-bottom: 10px;
+    }
+
+    .project-section {
+        background-color: rgba(255, 255, 255, 0); /* Transparansi 80% */
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 100px;
+        margin-left: 700px;
+        max-width: 800px;
+    }
+    .project-section h2 {
+        color: #64ffda;
+        border-bottom: 1px solid #64ffda;
+        padding-bottom: 10px;
+    }
+    .project-btn {
+            border: 1px solid #64ffda;
+            padding: 10px 20px;
+            border-radius: 5px;
+    }
+    .sertificate-section {
+        background-color: rgba(255, 255, 255, 0); /* Transparansi 80% */
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 100px;
+        margin-left: 700px;
+        max-width: 800px;
+    }
+    .sertificate-section h2 {
+        color: #64ffda;
+        border-bottom: 1px solid #64ffda;
+        padding-bottom: 10px;
+    }
+
+    .sertif-btn {
+        border: 1px solid #64ffda;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .skill-item {
+        border-radius: 5px;
+        padding: 15px;
+        text-align: center;
+        font-size: 1.2em;
+        background-color: rgba(255, 255, 255, 0); /* Contoh transparansi untuk skill item */
+    }
+
+    .skill-item i {
+        display: block;
+        font-size: 2em;
+        margin-bottom: 3px;
+    }
+    @media (max-width: 768px) {
+    header {
+        padding: 20px; /* Mengurangi padding header untuk layar kecil */
+    }
+
+    nav {
+        flex-direction: column; /* Mengubah arah navigasi menjadi kolom */
+        align-items: center; /* Mengatur agar item berada di tengah */
+    }
+
+    nav a {
+        margin: 10px 0; /* Jarak antar tautan vertikal */
+    }
+
+    .main-content {
+        margin-top: 70px; /* Mengurangi margin atas untuk konten utama */
+        position: relative; /* Mengubah posisi menjadi relatif */
+    }
+
+    h1 {
+        font-size: 40px; /* Mengurangi ukuran font untuk judul */
+    }
+
+    .tagline {
+        font-size: 30px; /* Mengurangi ukuran font untuk tagline */
+    }
+
+    .description {
+        font-size: 14px; /* Mengurangi ukuran font untuk deskripsi */
+    }
+
+    .social-links {
+        flex-direction: column; /* Mengubah arah menjadi kolom */
+        margin-top: 20px; /* Mengurangi jarak antara deskripsi dan link sosial */
+    }
+
+    .about-section, .experience-section, .project-section, .sertificate-section {
+        margin-left: 0; /* Menghapus margin kiri */
+        margin-top: 20px; /* Mengurangi margin atas */
+        max-width: 100%; /* Memastikan lebar maksimum 100% */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Mengubah ukuran kolom skill */
+    }
+
+    .project-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Mengubah ukuran kolom proyek */
+    }
+
+    .project-item {
+        padding: 10px; /* Mengurangi padding untuk item proyek */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"></div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#project">Projects</a>
+                <a href="#sertificate">Sertificate</a>
+                <a href="resume/cv-handyka.pdf" class="resume-btn">Resume</a>
+            </nav>
+        </header>
+        <main class="main-content">
+            <p class="intro">Hi, my name is</p>
+            <h1>Handyka.</h1>
+            <p class="tagline">I build things for the web.</p>
+            <p class="description">
+                I am a Full Stack Web Developer who builds and designs websites. 
+                Currently, I focus on building accessible and human-centric products or all aspects.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/Handykaaaaa">GitHub</a>
+                <a href="https://www.instagram.com/handyka__12/">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="https://www.linkedin.com/in/han-dyka-2b6216220/">LinkedIn</a>
+            </div>
+        </main>
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <p>
+                I am a student of Informatics Engineering at Indraprasta PGRI University with a friendly and communicative personality. 
+                My interests are focused on the world of information technology, and I have a high enthusiasm for learning in this field. 
+                My expertise includes web development using HTML5, CSS, JavaScript, PHP, and Laravel Framework, as well as UI/UX design or web design. 
+                In addition, I have critical thinking skills that I apply in working on various projects. 
+                This analytical approach helps me in finding innovative solutions to the technical challenges faced.
+            </p>
+        </section>
+        <section id="experience" class="experience-section">
+            <h2>Experience</h2>
+            <p>The following is my experience in the world of programming in various places.</p>
+            <br>
+            <p>Informatics Engineering Study Program Lab Assistant | Student</p>
+            <p>September 2022 – Present</p>
+            <p> - Assisting Practical Lecturers</p>
+            <p> - Teaching Web Programming, Data Structure Practical, Java Programming courses</p>
+            <p> - IT Support.</p>
+            <p>-----------------------------------------------------------------</p>
+            <p>PT. Yunta Mandiri Group | Internship & Independent Study</p>
+            <p>Feb 2024 – Jun 2024</p>
+            <p>Mastering Full-Stack Development</p>
+            <p> - Creating a portfolio, HTML, CSS, Js, Bootstrap</p>
+            <p> - Creating an OOP program with PHP</p>
+            <p> - Creating a MySQL, PHP Database Management</p>
+            <p> - Advanced Web Development with Laravel</p>
+            <p> - Real Project: Hotel Booking System Application with Laravel.</p>
+            <p>-----------------------------------------------------------------</p>
+            <p>PT. Gits Indonesia | Internship & Independent Study</p>
+            <p>Feb 2023 – Jun 2023</p>
+            <p>Full Stack Web Developer</p>
+            <p> - Setup MySql Database </p>
+            <p> - CRUD Laravel </p>
+            <p> - Create Static Web with PHP</p>
+            <p> - Create Mini Project CMS with Laravel</p>
+            <p> - Capstone Project Real: Online Shop Application with Laravel .</p>
+            <p>-----------------------------------------------------------------</p>
+            <p>Lecture Assignment | Student </p>
+            <p>Sep 2023 – Jan 2024</p>
+            <p>Semester 7</p>
+            <p> - Creating a simple Web </p>
+            <p> - Creating a cashier application with Java</p>
+            <p> - Software design analysis with UML</p>
+            <p> - Database management with MySql.</p>   
+        </section>
+        <section id="skills" class="about-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-html5"></i>HTML5</div>
+                <div class="skill-item"><i class="fab fa-css3-alt"></i>CSS3</div>
+                <div class="skill-item"><i class="fab fa-js"></i>JavaScript</div>
+                <div class="skill-item"><i class="fas fa-php"></i>PHP</div>
+                <div class="skill-item"><i class="fab fa-git-alt"></i>Git</div>
+                <div class="skill-item"><i class="fas fa-laravel"></i>Laravel</div>
+                <div class="skill-item"><i class="fas fa-mobile-alt"></i>Responsive Design</div>
+                <div class="skill-item"><i class="fas fa-palette"></i>UI/UX Design</div>
+                <div class="skill-item"><i class="fas fa-database"></i>SQL</div>
+                <div class="skill-item"><i class="fas fa-bootstrap"></i>Bootstrap</div>
+            </div>
+        </section>
+        <section id="project" class="project-section">
+            <h2>Projects</h2>
+            <div class="project-gallery">
+                <div class="project-item">
+                    <h3>Clonning App Livin'by Mandiri</h3>
+                    <p>UI/UX by figma</p>
+                    <div class="technologies">
+                        <span>Figma</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Capstone Project Real - Aplikasi Booking Hotel</h3>
+                    <p> An independent study course that teaches you how to build web applications with Laravel. Topics covered include the principles of using Laravel libraries, APIs, Filament, Breeze, and more..</p>
+                    <div class="technologies">
+                        <span>Laravel</span>
+                        <span>Filament</span>
+                        <span>API</span>
+                        <span>Breeze</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Mini Project Laravel - Pendataan Masyarakat</h3>
+                    <p>Web application to visualize personalized Community data. View current data and information.</p>
+                    <div class="technologies">
+                        <span>Laravel</span>
+                        <span>PHP</span>
+                        <span>Bootstrap</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Mini Project Laravel - Web Rekomendasi Makanan Kucing</h3>
+                    <p>Application to get information about cat food easily.</p>
+                    <div class="technologies">
+                        <span>Laravel murni</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h3>Capstone Project - Aplikasi Online Shop</h3>
+                    <p>An independent study course that teaches you how to build web applications with Laravel. Topics covered include the principles of using Authentication, Migration, Blade, CRUD, and more.</p>
+                    <div class="technologies">
+                        <span>Laravel</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <a href="#" class="view-archive">View Full Project Archive</a>
+            <p>
+                Here are some projects that I have created according to my abilities while 
+                participating in the MSIB program and assignments from campus.
+            </p> -->
+            <!-- <a href="project/project.html" class="project-btn">more</a> -->
+        </section>
+        <section id="sertificate" class="sertificate-section">
+            <h2>Sertificate</h2>
+            <p>
+                Here is proof that I have the ability/skill
+            </p>
+            <a href="sertifikat/Seftificate.pdf" class="sertif-btn">View</a>
+        </section>
+    </div>
+</body>
+</html>
